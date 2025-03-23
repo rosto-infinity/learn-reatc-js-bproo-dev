@@ -1,5 +1,7 @@
 import {useState} from 'react';
-const Home=()=>{
+import BlogList from './BlogList';
+const Home=({props})=>{
+    //les props 
 const  [blogs, setBlog] =useState ([
 
 {
@@ -11,6 +13,34 @@ const  [blogs, setBlog] =useState ([
 },
 {
     id:2,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:3,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:4,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:5,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:5,
     title:"Mon deuxieme article",
     body:"Voici le contenu de mon deuxieme article",
     author:"Aubin",
@@ -34,12 +64,13 @@ const  [blogs, setBlog] =useState ([
     //     console.log("hello "+name, event.target.value);
     // }
     return (
+        
         <div className="Home">
          {/* <h1>Notre page d'accueil</h1>
             <p>{name} a {age}</p>
             <button onClick={handleClick}>clicker moi </button>
             <button onClick={(e)=>handleClickAgain("Aubin", e)}>hello Aubin</button>  */}
-            <div className="bloglist">
+            {/* <div className="bloglist">
                 {
                    blogs.map((blog)=>(
                     <div className="blog" key={blog.id}>
@@ -51,7 +82,8 @@ const  [blogs, setBlog] =useState ([
                    ))
                    
                 }
-            </div>
+            </div> */}
+            <BlogList blogs={blogs} title={'Listes des blogs'} />
         </div>
       );
 }
