@@ -20,29 +20,29 @@ const  [blogs, setBlog] =useState ([
 },
 {
     id:3,
-    title:"Mon premier article",
+    title:"Mon troisieme article",
     body:"Voici le contenu de mon premier article",
-    author:"Simo",
+    author:"pablo",
     date:"2021-09-01",
 },
 {
     id:4,
-    title:"Mon premier article",
-    body:"Voici le contenu de mon premier article",
+    title:"Mon quatrieme article",
+    body:"Voici le contenu de mon quatrieme article",
     author:"Simo",
     date:"2021-09-01",
 },
 {
     id:5,
-    title:"Mon premier article",
-    body:"Voici le contenu de mon premier article",
-    author:"Simo",
+    title:"Mon cinquieme article",
+    body:"Voici le contenu de mon cinquieme article",
+    author:"Pablo",
     date:"2021-09-01",
 },
 {
-    id:5,
-    title:"Mon deuxieme article",
-    body:"Voici le contenu de mon deuxieme article",
+    id:6,
+    title:"Mon sixieme article",
+    body:"Voici le contenu de mon sixieme article",
     author:"Aubin",
     date:"2021-09-02",
 }
@@ -84,6 +84,7 @@ const  [blogs, setBlog] =useState ([
                 }
             </div> */}
             <BlogList blogs={blogs} title={'Listes des blogs'} />
+             <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} /> 
         </div>
       );
 }
