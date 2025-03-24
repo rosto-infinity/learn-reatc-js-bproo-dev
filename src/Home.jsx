@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import BlogList from './BlogList';
+import BlogList from './Bloglist';
 const Home=({props})=>{
     //les props 
 const  [blogs, setBlog] =useState ([
@@ -63,6 +63,15 @@ const  [blogs, setBlog] =useState ([
     // const handleClickAgain=(name, event)=>{
     //     console.log("hello "+name, event.target.value);
     // }
+    const HandleDelete=(id)=>{
+        console.log("delete article");
+        //faire une requete http pour supprimer l'article avec l'id
+        const newBlog=blogs.fliter((blog)=>blog.id !==id);
+        setBlog(newBlog);
+//         setBlog(blogs.filter((blog)=>blog.id !==id));
+//setBog permet de 
+        
+    }
     return (
         
         <div className="Home">
@@ -83,8 +92,9 @@ const  [blogs, setBlog] =useState ([
                    
                 }
             </div> */}
-            <BlogList blogs={blogs} title={'Listes des blogs'} />
-             <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} /> 
+            <BlogList blogs={blogs} title={'Listes des blogs'} HandleDelete={HandleDelete} />
+            {/* <h1>Listes des articles publiés par simo</h1>
+             <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} />  */}
         </div>
       );
 }
