@@ -1,6 +1,8 @@
 const useFetch = () => {
  setTimeout(()=>{
 useEffect(()=>{
+    const abortController=new AbortController();
+    // fetch("http://localhost:3004/posts", {signal:abortController.signal})
     fetch("http://localhost:3004/posts")
 .then((res)=>{
     console.log(res);
@@ -16,6 +18,7 @@ useEffect(()=>{
     }).catch(error=>{
             console.log(erreur);})
     setError(true)
+    //return()=>abortController.abort();
 
         }, 3000);
 

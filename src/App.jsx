@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Add from "./Add";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import BlogDetail from './BlogDetail';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/add" element={<Add/>} />
+          <Route path="/blog/:id" element={<BlogDetail/>} />
         </Routes>
       </div>
     </Router>
