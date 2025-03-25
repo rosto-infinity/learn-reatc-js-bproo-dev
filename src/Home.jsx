@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import BlogList from "./BlogList";
 const Home=({props})=>{
     //les props 
@@ -66,11 +66,28 @@ const  [blogs, setBlog] =useState ([
     const HandleDelete=(id)=>{
         console.log("suppression de l'article Id:", id);
         //faire une requete http pour supprimer l'article avec l'id
-        const newBlog=blogs.fliter((blog)=>blog.id !==id);
+        const newBlog=blogs.filter((blog)=>blog.id !==id);
         setBlog(newBlog);
 //         setBlog(blogs.filter((blog)=>blog.id !==id));
-//setBog permet de 
+//setBog permet de  faire la mise a jour 
         
+//les useEffect sont les fonctions qui s'appelent lorsque les fonctions sont mises a jours
+useEffect(()=>{
+    console.log("je suis un useEffect");
+    // return ()=>{
+        console.log("je suis un useEffect cleanup");
+    // }
+//le useEffect se déclenchera seulement si le tableau de blog change.
+})
+
+
+
+
+
+
+
+
+
     }
     return (
         
@@ -93,8 +110,8 @@ const  [blogs, setBlog] =useState ([
                 }
             </div> */}
             <BlogList blogs={blogs} title={'Listes des blogs'} HandleDelete={HandleDelete} />
-            {/* <h1>Listes des articles publiés par simo</h1>
-             <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} />  */}
+            {/* <h1>Listes des articles publiés par simo</h1> */}
+             {/* <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} />  */}
         </div>
       );
 }
