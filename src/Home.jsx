@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import BlogList from './Bloglist';
+import BlogList from "./BlogList";
 const Home=({props})=>{
     //les props 
 const  [blogs, setBlog] =useState ([
@@ -10,7 +10,7 @@ const  [blogs, setBlog] =useState ([
     body:"Voici le contenu de mon premier article",
     author:"Simo",
     date:"2021-09-01",
-},
+}, 
 {
     id:2,
     title:"Mon premier article",
@@ -64,7 +64,7 @@ const  [blogs, setBlog] =useState ([
     //     console.log("hello "+name, event.target.value);
     // }
     const HandleDelete=(id)=>{
-        console.log("delete article");
+        console.log("suppression de l'article Id:", id);
         //faire une requete http pour supprimer l'article avec l'id
         const newBlog=blogs.fliter((blog)=>blog.id !==id);
         setBlog(newBlog);
