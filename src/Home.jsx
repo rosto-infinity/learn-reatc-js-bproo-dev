@@ -2,55 +2,66 @@ import {useState, useEffect} from 'react';
 import BlogList from "./BlogList";
 const Home=({props})=>{
     //les props 
-const  [blogs, setBlog] =useState (null
-//     [
+    const loading={
+        "color": "red",
+        "fontSize": "30px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "marginTop": "50px"
+        
+    }
+// const  [blogs, setBlog] =useState (null
+const  [blogs, setBlog] =useState (
+    [
 
-// {
-//     id:1,
-//     title:"Mon premier article",
-//     body:"Voici le contenu de mon premier article",
-//     author:"Simo",
-//     date:"2021-09-01",
-// }, 
-// {
-//     id:2,
-//     title:"Mon premier article",
-//     body:"Voici le contenu de mon premier article",
-//     author:"Simo",
-//     date:"2021-09-01",
-// },
-// {
-//     id:3,
-//     title:"Mon troisieme article",
-//     body:"Voici le contenu de mon premier article",
-//     author:"pablo",
-//     date:"2021-09-01",
-// },
-// {
-//     id:4,
-//     title:"Mon quatrieme article",
-//     body:"Voici le contenu de mon quatrieme article",
-//     author:"Simo",
-//     date:"2021-09-01",
-// },
-// {
-//     id:5,
-//     title:"Mon cinquieme article",
-//     body:"Voici le contenu de mon cinquieme article",
-//     author:"Pablo",
-//     date:"2021-09-01",
-// },
-// {
-//     id:6,
-//     title:"Mon sixieme article",
-//     body:"Voici le contenu de mon sixieme article",
-//     author:"Aubin",
-//     date:"2021-09-02",
-// }
+{
+    id:1,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+}, 
+{
+    id:2,
+    title:"Mon premier article",
+    body:"Voici le contenu de mon premier article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:3,
+    title:"Mon troisieme article",
+    body:"Voici le contenu de mon premier article",
+    author:"pablo",
+    date:"2021-09-01",
+},
+{
+    id:4,
+    title:"Mon quatrieme article",
+    body:"Voici le contenu de mon quatrieme article",
+    author:"Simo",
+    date:"2021-09-01",
+},
+{
+    id:5,
+    title:"Mon cinquieme article",
+    body:"Voici le contenu de mon cinquieme article",
+    author:"Pablo",
+    date:"2021-09-01",
+},
+{
+    id:6,
+    title:"Mon sixieme article",
+    body:"Voici le contenu de mon sixieme article",
+    author:"Aubin",
+    date:"2021-09-02",
+}
 
 
-// ]
+]
 )
+const [isLoading, setLoading]=useState(true);
+const [error, setError]=useState(null);
     // let name ="Simo";
     // let [name, setName]=useState('Simo');
     // let [age, setAge]=useState(19);
@@ -70,6 +81,8 @@ const  [blogs, setBlog] =useState (null
         //faire une requete http pour supprimer l'article avec l'id
         const newBlog=blogs.filter((blog)=>blog.id !==id);
         setBlog(newBlog);
+
+
 //         setBlog(blogs.filter((blog)=>blog.id !==id));
 //setBog permet de  faire la mise a jour 
         
@@ -84,18 +97,27 @@ const  [blogs, setBlog] =useState (null
 // }, [blogs]);
 
 
-
-useEffect(()=>{
-    fetch("http://localhost:3004/posts").then((res)=>{
-        return res.json();
-    })
-    .then((data)=>{
-        console.log(data);
-        setBlog(data);
+// setTimeout(()=>{
+// useEffect(()=>{
+//     fetch("http://localhost:3004/posts")
+// .then((res)=>{
+    //console.log(res);
+    //if(!response.ok){
+    //throw Error('desole, une erreur est survenu lors de la requete');}
+//         return res.json();
+//     })
+//     .then((data)=>{
+//         console.log(data);
+//         setBlog(data);
+//         setLoading(false);//ici, losque les donnees ont charger, l'on fiiche false
         
-    })
+//     }).catch(erreo=>{
+    //         console.log(erreur);})
+    // setError(true)
 
-}, []);
+//         }, 3000);
+
+// }, []);
 
 
 
@@ -135,8 +157,10 @@ useEffect(()=>{
                    
                 }
             </div> */}
+            {error && <div>{error}</div>}
+            {isLoading && <div style={loading} >Chargement...</div>}
            {blogs && <BlogList blogs={blogs} title={'Listes des blogs'} HandleDelete={HandleDelete} />} 
-            {/* <h1>Listes des articles publiés par simo</h1> */}
+            <h1>Listes des articles publiés par simo</h1>
              {/* <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} />  */}
         </div>
       );
