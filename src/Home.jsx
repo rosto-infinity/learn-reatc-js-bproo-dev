@@ -73,14 +73,17 @@ const  [blogs, setBlog] =useState ([
         
 //les useEffect sont les fonctions qui s'appelent lorsque les fonctions sont mises a jours
 useEffect(()=>{
-    console.log("je suis un useEffect");
     // return ()=>{
+        console.log("je suis un useEffect");
         console.log("je suis un useEffect cleanup");
+
     // }
 //le useEffect se déclenchera seulement si le tableau de blog change.
-})
+}, [blogs]);
 
 
+//ce que nous pouvons dire des useEffect c'est qu'ils sont des fonctions qui s'appellent lorsque les fonctions sont mises a jours
+//le useEffect se déclenchera seulement si le tableau de blog change.
 
 
 
