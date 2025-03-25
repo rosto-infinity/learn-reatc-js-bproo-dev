@@ -2,53 +2,55 @@ import {useState, useEffect} from 'react';
 import BlogList from "./BlogList";
 const Home=({props})=>{
     //les props 
-const  [blogs, setBlog] =useState ([
+const  [blogs, setBlog] =useState (null
+//     [
 
-{
-    id:1,
-    title:"Mon premier article",
-    body:"Voici le contenu de mon premier article",
-    author:"Simo",
-    date:"2021-09-01",
-}, 
-{
-    id:2,
-    title:"Mon premier article",
-    body:"Voici le contenu de mon premier article",
-    author:"Simo",
-    date:"2021-09-01",
-},
-{
-    id:3,
-    title:"Mon troisieme article",
-    body:"Voici le contenu de mon premier article",
-    author:"pablo",
-    date:"2021-09-01",
-},
-{
-    id:4,
-    title:"Mon quatrieme article",
-    body:"Voici le contenu de mon quatrieme article",
-    author:"Simo",
-    date:"2021-09-01",
-},
-{
-    id:5,
-    title:"Mon cinquieme article",
-    body:"Voici le contenu de mon cinquieme article",
-    author:"Pablo",
-    date:"2021-09-01",
-},
-{
-    id:6,
-    title:"Mon sixieme article",
-    body:"Voici le contenu de mon sixieme article",
-    author:"Aubin",
-    date:"2021-09-02",
-}
+// {
+//     id:1,
+//     title:"Mon premier article",
+//     body:"Voici le contenu de mon premier article",
+//     author:"Simo",
+//     date:"2021-09-01",
+// }, 
+// {
+//     id:2,
+//     title:"Mon premier article",
+//     body:"Voici le contenu de mon premier article",
+//     author:"Simo",
+//     date:"2021-09-01",
+// },
+// {
+//     id:3,
+//     title:"Mon troisieme article",
+//     body:"Voici le contenu de mon premier article",
+//     author:"pablo",
+//     date:"2021-09-01",
+// },
+// {
+//     id:4,
+//     title:"Mon quatrieme article",
+//     body:"Voici le contenu de mon quatrieme article",
+//     author:"Simo",
+//     date:"2021-09-01",
+// },
+// {
+//     id:5,
+//     title:"Mon cinquieme article",
+//     body:"Voici le contenu de mon cinquieme article",
+//     author:"Pablo",
+//     date:"2021-09-01",
+// },
+// {
+//     id:6,
+//     title:"Mon sixieme article",
+//     body:"Voici le contenu de mon sixieme article",
+//     author:"Aubin",
+//     date:"2021-09-02",
+// }
 
 
-])
+// ]
+)
     // let name ="Simo";
     // let [name, setName]=useState('Simo');
     // let [age, setAge]=useState(19);
@@ -72,14 +74,35 @@ const  [blogs, setBlog] =useState ([
 //setBog permet de  faire la mise a jour 
         
 //les useEffect sont les fonctions qui s'appelent lorsque les fonctions sont mises a jours
-useEffect(()=>{
-    // return ()=>{
-        console.log("je suis un useEffect");
-        console.log("je suis un useEffect cleanup");
+// useEffect(()=>{
+//     // return ()=>{
+//         console.log("je suis un useEffect");
+//         console.log("je suis un useEffect cleanup");
 
-    // }
-//le useEffect se déclenchera seulement si le tableau de blog change.
-}, [blogs]);
+//     // }
+// //le useEffect se déclenchera seulement si le tableau de blog change.
+// }, [blogs]);
+
+
+
+useEffect(()=>{
+    fetch("http://localhost:3004/posts").then((res)=>{
+        return res.json();
+    })
+    .then((data)=>{
+        console.log(data);
+        setBlog(data);
+        
+    })
+
+}, []);
+
+
+
+
+
+
+
 
 
 //ce que nous pouvons dire des useEffect c'est qu'ils sont des fonctions qui s'appellent lorsque les fonctions sont mises a jours
@@ -112,7 +135,7 @@ useEffect(()=>{
                    
                 }
             </div> */}
-            <BlogList blogs={blogs} title={'Listes des blogs'} HandleDelete={HandleDelete} />
+           {blogs && <BlogList blogs={blogs} title={'Listes des blogs'} HandleDelete={HandleDelete} />} 
             {/* <h1>Listes des articles publiés par simo</h1> */}
              {/* <BlogList blogs={blogs.filter((blog)=>blog.author=="Simo")} title={'Listes des blogs de simo'} />  */}
         </div>
