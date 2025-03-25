@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 const Navbar = () => {
   const buttonArticle={
     backgroundColor:'blue',
@@ -10,21 +11,21 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div>
-        <a href="" className="logo">Boris dev</a>
+        <Link to="/" className="logo">Boris dev</Link>
       </div>
       <ul className="liens">
         <li>
-          <a href="" className="lien">Accueil</a>
+          <Link href="/" className="lien">Accueil</Link>
         </li>
         <li>
-          <a href="" className="lien" style={ buttonArticle
+          <Link to="add" className="lien" style={ buttonArticle
           //   {backgroundColor:'blue',
           // color:'white',
           // padding:'10px',
           // borderRadius:'5px'
 
           // }
-          }>Creer un article</a>
+          }>Creer un article</Link>
         </li>
         
       </ul>
