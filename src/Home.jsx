@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
-  // Style pour l’affichage du chargement
+  // ---Style pour l’affichage du chargement
   const loadingStyle = {
     color: 'red',
     fontSize: '30px',
