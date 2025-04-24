@@ -21,7 +21,7 @@ const Home = () => {
     { id: 6, title: "Mon sixième article", body: "Voici le contenu de mon sixième article", author: "Aubin", date: "2021-09-02" },
   ]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
 
   // Simule un chargement ou une requête réseau
   useEffect(() => {
@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      {error && <div className="error">{error}</div>}
+      
 
       {isLoading ? (
         <div style={loadingStyle}>Chargement...</div>
