@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import BlogList from "./BlogList";
+import BlogList from "./";
 const Home=({props})=>{
     //les props 
     const loading={
@@ -62,20 +62,7 @@ const  [blogs, setBlog] =useState (
 )
 const [isLoading, setLoading]=useState(true);
 const [error, setError]=useState(null);
-    // let name ="Simo";
-    // let [name, setName]=useState('Simo');
-    // let [age, setAge]=useState(19);
-    // const handleClick=()=>{
-    //     // // console.log("click reussi avec success");
-    //     // // nom="Dev";
-    //     // setName('Dev');
-    //     // setAge(27);
-    //     // console.log("${name} change a "+name);
-    //     // console.log("${nom} change a "+nom);
-    // }
-    // const handleClickAgain=(name, event)=>{
-    //     console.log("hello "+name, event.target.value);
-    // }
+   
     const HandleDelete=(id)=>{
         console.log("suppression de l'article Id:", id);
         //faire une requete http pour supprimer l'article avec l'id
